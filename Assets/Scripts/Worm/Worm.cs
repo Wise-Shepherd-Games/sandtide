@@ -1,3 +1,4 @@
+using Statics;
 using UnityEngine;
 
 namespace Worm
@@ -11,8 +12,11 @@ namespace Worm
         [SerializeField, Header("Movement Speed")]
         private float movSpeed;
 
-        public Grid myGrid;
-    
+        void OnEnable()
+        {
+            EventManager.MakeNoise += ChangeTarget;
+        }
+
         void Update()
         {
             MoveToTarget();
@@ -24,11 +28,17 @@ namespace Worm
                 currentTargetCoordinate = targetCoordinate;
             else
             {
-                Vector3 toCell = myGrid.CellToWorld(new Vector3Int((int)currentTargetCoordinate.x, (int)currentTargetCoordinate.y));
-                transform.position = Vector2.MoveTowards(this.transform.position, toCell,
+                transform.position = Vector2.MoveTowards
+                    (this.transform.position, 
+                    currentTargetCoordinate, 
                     movSpeed * Time.deltaTime);
             }
         }
 
+        private void ChangeTarget(Vector2 position)
+        {
+            targetCoordinate = position;
+        }
+        
     }
 }
