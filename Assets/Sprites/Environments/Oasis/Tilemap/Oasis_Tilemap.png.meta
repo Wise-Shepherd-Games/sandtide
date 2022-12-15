@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -112,15 +112,15 @@ TextureImporter:
         y: 32
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9813e115717110c49b8065f2d928c48b
-      internalID: -1034669446
+      spriteID: e32ad8c9e363e7d4589b1f9e80eac780
+      internalID: -194104559
       vertices: []
       indices: 
       edges: []
@@ -129,19 +129,19 @@ TextureImporter:
       name: Oasis_Tilemap_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 48
         y: 32
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fa3f40e12707f948895d580105477d0
-      internalID: 1630127637
+      spriteID: d0fae9400c8564344a05473ac24f892b
+      internalID: 335877521
       vertices: []
       indices: 
       edges: []
@@ -150,19 +150,19 @@ TextureImporter:
       name: Oasis_Tilemap_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 96
         y: 32
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5af41fcc0a57dbe4cb176db3af83bda6
-      internalID: -929690169
+      spriteID: c6e7c7c7230cd1f4bab7410ecc170789
+      internalID: -317746187
       vertices: []
       indices: 
       edges: []
@@ -171,19 +171,19 @@ TextureImporter:
       name: Oasis_Tilemap_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 32
+        x: 0
+        y: 0
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c0527e68af06334eb8e6f549d4a69dc
-      internalID: 880402114
+      spriteID: 2be0d4406df6afa4bb16811a69cb7e4b
+      internalID: 838756797
       vertices: []
       indices: 
       edges: []
@@ -192,19 +192,19 @@ TextureImporter:
       name: Oasis_Tilemap_4
       rect:
         serializedVersion: 2
-        x: 0
+        x: 48
         y: 0
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6f8a38ea204ab4408176dde134e4439
-      internalID: -121745988
+      spriteID: d4d933008c3f3924099f792de37b5a35
+      internalID: 1273418919
       vertices: []
       indices: 
       edges: []
@@ -213,40 +213,19 @@ TextureImporter:
       name: Oasis_Tilemap_5
       rect:
         serializedVersion: 2
-        x: 32
+        x: 96
         y: 0
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99ebd5ecaf6f72544b53197d50c308d9
-      internalID: -912481954
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Oasis_Tilemap_6
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 94e4a49e9b992684b97252f5a9e12079
-      internalID: -611543103
+      spriteID: 8b7dcef02d69ecb428af7886bd41aa14
+      internalID: -1598283685
       vertices: []
       indices: 
       edges: []
@@ -262,13 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Oasis_Tilemap_5: -912481954
-      Oasis_Tilemap_4: -121745988
-      Oasis_Tilemap_1: 1630127637
-      Oasis_Tilemap_3: 880402114
-      Oasis_Tilemap_6: -611543103
-      Oasis_Tilemap_2: -929690169
-      Oasis_Tilemap_0: -1034669446
+      Oasis_Tilemap_5: -1598283685
+      Oasis_Tilemap_4: 1273418919
+      Oasis_Tilemap_1: 335877521
+      Oasis_Tilemap_3: 838756797
+      Oasis_Tilemap_2: -317746187
+      Oasis_Tilemap_0: -194104559
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

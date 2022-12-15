@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -68,7 +68,7 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -112,15 +112,15 @@ TextureImporter:
         y: 32
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2792f650757f6864f84d686d71ceac27
-      internalID: -468517271
+      spriteID: 98dd3b3d2a8971f4a836832d331dbd68
+      internalID: 1012376798
       vertices: []
       indices: 
       edges: []
@@ -129,19 +129,19 @@ TextureImporter:
       name: Lowland_Tilemap_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 48
         y: 32
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 862bebacea6275a4c8579366fac0015c
-      internalID: 1769357333
+      spriteID: 560aec9ef0f48164ba6d128ee7ec2717
+      internalID: 299795879
       vertices: []
       indices: 
       edges: []
@@ -150,19 +150,19 @@ TextureImporter:
       name: Lowland_Tilemap_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 96
         y: 32
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2955074fb9052646b872f360dd9762c
-      internalID: -2122683693
+      spriteID: 2eeb05290a88e174883eb123ae1158ae
+      internalID: -141064648
       vertices: []
       indices: 
       edges: []
@@ -171,19 +171,19 @@ TextureImporter:
       name: Lowland_Tilemap_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 32
+        x: 0
+        y: 0
         width: 32
         height: 32
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eae674a8be31a2a429909bad7bea488f
-      internalID: -300514632
+      spriteID: 9400c26ba05074a4c841b4b6579a3864
+      internalID: 903239622
       vertices: []
       indices: 
       edges: []
@@ -192,19 +192,19 @@ TextureImporter:
       name: Lowland_Tilemap_4
       rect:
         serializedVersion: 2
-        x: 0
+        x: 48
         y: 0
         width: 32
         height: 32
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb4308543aee9ae4cb04968108c54f3b
-      internalID: 535711955
+      spriteID: ecd350d641e704148bc192fd265f31ad
+      internalID: -1226449352
       vertices: []
       indices: 
       edges: []
@@ -213,7 +213,7 @@ TextureImporter:
       name: Lowland_Tilemap_5
       rect:
         serializedVersion: 2
-        x: 32
+        x: 96
         y: 0
         width: 32
         height: 32
@@ -224,29 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86307fd6413155f4193fb519cfc711a6
-      internalID: 535976037
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lowland_Tilemap_6
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a578d50df47f4c84896fa646b3c219cb
-      internalID: -1992615914
+      spriteID: 3c045db27cc4a61439456f5791a53d8c
+      internalID: -291989106
       vertices: []
       indices: 
       edges: []
@@ -262,13 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Lowland_Tilemap_5: 535976037
-      Lowland_Tilemap_0: -468517271
-      Lowland_Tilemap_3: -300514632
-      Lowland_Tilemap_1: 1769357333
-      Lowland_Tilemap_6: -1992615914
-      Lowland_Tilemap_2: -2122683693
-      Lowland_Tilemap_4: 535711955
+      Lowland_Tilemap_5: -291989106
+      Lowland_Tilemap_0: 1012376798
+      Lowland_Tilemap_3: 903239622
+      Lowland_Tilemap_1: 299795879
+      Lowland_Tilemap_2: -141064648
+      Lowland_Tilemap_4: -1226449352
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
