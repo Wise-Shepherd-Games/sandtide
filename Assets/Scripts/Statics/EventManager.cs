@@ -13,5 +13,8 @@ namespace Statics
 
         public static event UnityAction<Vector3> PlayerClick;
         public static void OnPlayerClick(Vector3 position) => PlayerClick?.Invoke(position);
+        
+        public static event UnityAction EnableBuildMode;
+        public static void OnEnableBuildMode() => EnableBuildMode?.Invoke();
     }
 }

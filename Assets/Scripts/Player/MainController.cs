@@ -1,5 +1,5 @@
 using Statics;
-using Build;
+using Building;
 using UnityEngine;
 
 namespace Player
@@ -40,7 +40,7 @@ namespace Player
         {
             if (Input.GetKeyDown(KeyCode.B))
             {
-                Builder.BuildingState = !Builder.BuildingState;
+                EventManager.OnEnableBuildMode();
             }
         }
     }
