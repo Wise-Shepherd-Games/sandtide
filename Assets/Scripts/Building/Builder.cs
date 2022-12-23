@@ -99,7 +99,7 @@ namespace Building
             return new Vector3Int(x, y, 2);
         }
 
-        public List<Tile>  GetBuildings()
+        public List<Tile> GetBuildings()
         {
             return buildings;
         }
