@@ -432,6 +432,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 439044305}
+  - component: {fileID: 439044306}
   m_Layer: 0
   m_Name: Build
   m_TagString: Untagged
@@ -454,6 +455,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &439044306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439044304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6393bf354d1cc4f4a82d3d23c6451d95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildings:
+  - {fileID: 11400000, guid: a885da9c9ab6aec4e95e1c8fa7f459a3, type: 2}
+  gizmo:
+  - {fileID: 11400000, guid: 944ec6ecaba2bcd43bbf2954413c9c4e, type: 2}
+  - {fileID: 11400000, guid: 42c8c03dee155914782c51cf9d451924, type: 2}
+  placeholder: {fileID: 11400000, guid: df09731971956674eafb72a37ee172be, type: 2}
+  grid: {fileID: 1972946011}
+  tilemaps:
+  - {fileID: 826457452}
+  - {fileID: 1713184284}
+  - {fileID: 711741877}
+  - {fileID: 182840852}
+  source: {fileID: 340441367}
+  buildSound: {fileID: 8300000, guid: 0a609bdc9a121b14ebd1d1e1b8e33c78, type: 3}
 --- !u!1 &711741874
 GameObject:
   m_ObjectHideFlags: 0

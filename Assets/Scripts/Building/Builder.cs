@@ -13,7 +13,10 @@ namespace Building
         [SerializeField, Header("Tiles")]
         private List<Tile> buildings;
         [SerializeField]
-        private Tile gizmo;
+        private List<Tile> gizmo;
+        
+        [SerializeField]
+        private Tile placeholder;
         
         [SerializeField, Header("Target Grid and Tilemaps")]
         private Grid grid;
@@ -26,6 +29,7 @@ namespace Building
         public AudioClip buildSound;
 
         private bool buildingState;
+        private bool everyTileIsValid;
         
         void OnEnable()
         {
@@ -35,7 +39,7 @@ namespace Building
 
         void Update()
         {
-            if (buildingState) { WhileOnBuildModeDrawGizmo(); }
+            if (buildingState) { WhileOnBuildModeDrawGizmoAndCheckAllTilesValidity(); }
         }
         
 
@@ -43,22 +47,60 @@ namespace Building
         {
             buildingState = !buildingState;
             tilemaps[^1].ClearAllTiles();
-        } 
+        }
         
-        private void WhileOnBuildModeDrawGizmo()
+        private void WhileOnBuildModeDrawGizmoAndCheckAllTilesValidity()
         {
             if (buildingState)
             {
-                Vector3Int? cell = CheckTileValidityToBuild(MainController.GetWorldMousePosition());
+                Vector3Int? cell = CheckTileValidityToBuild(MainController.GetWorldMousePosition(), true);
                 
                 if (cell != null)
                 {
+                    everyTileIsValid = true;
                     tilemaps[^1].ClearAllTiles();
-                    tilemaps[^1].SetTile((Vector3Int)cell, gizmo);
+                    
+                    Vector3Int cellConverted = (Vector3Int)cell;
+                    
+                    tilemaps[^1].SetTile(cellConverted, gizmo[0]);
+                    
+                    Vector3Int up = new Vector3Int(cellConverted.x + 1, cellConverted.y + 1, cellConverted.z);
+                    Vector3Int rightUp = new Vector3Int(cellConverted.x + 1, cellConverted.y, cellConverted.z);
+                    Vector3Int leftUp = new Vector3Int(cellConverted.x, cellConverted.y + 1, cellConverted.z);
+
+
+                    if (CheckTileValidityToBuild(up, false) != null)
+                    {
+                        tilemaps[^1].SetTile(up, gizmo[0]);
+                    }
+                    else
+                    {
+                        tilemaps[^1].SetTile(up, gizmo[1]);
+                        everyTileIsValid = false;
+                    }
+                    
+                    if (CheckTileValidityToBuild(rightUp, false) != null)
+                        tilemaps[^1].SetTile(rightUp, gizmo[0]);
+                    else
+                    {
+                        tilemaps[^1].SetTile(rightUp, gizmo[1]);
+                        everyTileIsValid = false;
+                    }
+                    
+                    if (CheckTileValidityToBuild(leftUp, false) != null)
+                        tilemaps[^1].SetTile(leftUp, gizmo[0]);
+                    else
+                    {
+                        tilemaps[^1].SetTile(leftUp, gizmo[1]);
+                        everyTileIsValid = false;
+                    }
                 }
                 else
                 {
                     tilemaps[^1].ClearAllTiles();
+                    Vector3Int invalidCell = (Vector3Int)Utils.WorldToCell(grid, MainController.GetWorldMousePosition());
+                    invalidCell.z = 2;
+                    tilemaps[^1].SetTile(invalidCell, gizmo[1]);
                 }
      
             }
@@ -66,29 +108,40 @@ namespace Building
         
         private void OnPlayerClickBuild(Vector3 mousePosition)
         {
-            if (buildingState)
+            if (buildingState && everyTileIsValid)
             {
-                Vector3Int? cell = CheckTileValidityToBuild(mousePosition);
+                Vector3Int? cell = CheckTileValidityToBuild(mousePosition, true);
 
                 if (cell != null)
                 {
                     tilemaps[1].SetTile((Vector3Int)cell, buildings[SelectedBuilding]);
+                    Vector3Int cellConverted = (Vector3Int)cell;
+                    
+                    Vector3Int up = new Vector3Int(cellConverted.x + 1, cellConverted.y + 1, cellConverted.z);
+                    Vector3Int rightUp = new Vector3Int(cellConverted.x + 1, cellConverted.y, cellConverted.z);
+                    Vector3Int leftUp = new Vector3Int(cellConverted.x, cellConverted.y + 1, cellConverted.z);
+                    
+                    tilemaps[1].SetTile(up, placeholder);
+                    tilemaps[1].SetTile(rightUp, placeholder);
+                    tilemaps[1].SetTile(leftUp, placeholder);
+                    
                     source.PlayOneShot(buildSound, 0.25f);
                     buildingState = false;
                     tilemaps[^1].ClearAllTiles();
-                    tilemaps[2].color = Color.white;
                 }
             }
         }
 
-        private Vector3Int? CheckTileValidityToBuild(Vector3 targetPosition)
+        private Vector3Int? CheckTileValidityToBuild(Vector3 targetPosition, bool convertToCell)
         {
-            Vector2Int cell = Utils.WorldToCell(grid, targetPosition);
+
+            Vector2Int cell = convertToCell ? Utils.WorldToCell(grid, targetPosition) : new Vector2Int((int)targetPosition.x, (int)targetPosition.y);
+            
             int x = cell.x;
             int y = cell.y;
 
             if (tilemaps[0].GetTile(new Vector3Int(x, y, 0)) != null) { return null; }
-             
+
             if  (
                    tilemaps[2].GetTile(new Vector3Int(x, y, 3)) != null 
                 || tilemaps[1].GetTile(new Vector3Int(x, y, 1)) == null 
