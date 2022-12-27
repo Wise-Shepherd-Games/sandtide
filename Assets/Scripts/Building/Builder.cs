@@ -63,36 +63,20 @@ namespace Building
                     Vector3Int cellConverted = (Vector3Int)cell;
                     
                     tilemaps[^1].SetTile(cellConverted, gizmo[0]);
-                    
-                    Vector3Int up = new Vector3Int(cellConverted.x + 1, cellConverted.y + 1, cellConverted.z);
-                    Vector3Int rightUp = new Vector3Int(cellConverted.x + 1, cellConverted.y, cellConverted.z);
-                    Vector3Int leftUp = new Vector3Int(cellConverted.x, cellConverted.y + 1, cellConverted.z);
 
+                    List<Vector3Int> topNeighbors = Utils.BuildingTopNeighbors(cellConverted);
 
-                    if (CheckTileValidityToBuild(up, false) != null)
+                    foreach (Vector3Int neighbor in topNeighbors)
                     {
-                        tilemaps[^1].SetTile(up, gizmo[0]);
-                    }
-                    else
-                    {
-                        tilemaps[^1].SetTile(up, gizmo[1]);
-                        everyTileIsValid = false;
-                    }
-                    
-                    if (CheckTileValidityToBuild(rightUp, false) != null)
-                        tilemaps[^1].SetTile(rightUp, gizmo[0]);
-                    else
-                    {
-                        tilemaps[^1].SetTile(rightUp, gizmo[1]);
-                        everyTileIsValid = false;
-                    }
-                    
-                    if (CheckTileValidityToBuild(leftUp, false) != null)
-                        tilemaps[^1].SetTile(leftUp, gizmo[0]);
-                    else
-                    {
-                        tilemaps[^1].SetTile(leftUp, gizmo[1]);
-                        everyTileIsValid = false;
+                        if (CheckTileValidityToBuild(neighbor, false) != null)
+                        {
+                            tilemaps[^1].SetTile(neighbor, gizmo[0]);
+                        }
+                        else
+                        {
+                            tilemaps[^1].SetTile(neighbor, gizmo[1]);
+                            everyTileIsValid = false;
+                        }
                     }
                 }
                 else
@@ -117,14 +101,13 @@ namespace Building
                     tilemaps[1].SetTile((Vector3Int)cell, buildings[SelectedBuilding]);
                     Vector3Int cellConverted = (Vector3Int)cell;
                     
-                    Vector3Int up = new Vector3Int(cellConverted.x + 1, cellConverted.y + 1, cellConverted.z);
-                    Vector3Int rightUp = new Vector3Int(cellConverted.x + 1, cellConverted.y, cellConverted.z);
-                    Vector3Int leftUp = new Vector3Int(cellConverted.x, cellConverted.y + 1, cellConverted.z);
-                    
-                    tilemaps[1].SetTile(up, placeholder);
-                    tilemaps[1].SetTile(rightUp, placeholder);
-                    tilemaps[1].SetTile(leftUp, placeholder);
-                    
+                    List<Vector3Int> topNeighbors = Utils.BuildingTopNeighbors(cellConverted);
+
+                    foreach (Vector3Int neighbor in topNeighbors)
+                    {
+                        tilemaps[1].SetTile(neighbor, placeholder);
+                    }
+
                     source.PlayOneShot(buildSound, 0.25f);
                     buildingState = false;
                     tilemaps[^1].ClearAllTiles();
@@ -152,6 +135,7 @@ namespace Building
             return new Vector3Int(x, y, 2);
         }
 
+        
         public List<Tile> GetBuildings()
         {
             return buildings;
