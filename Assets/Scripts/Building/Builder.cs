@@ -11,7 +11,7 @@ namespace Building
         public static int SelectedBuilding { get; set; } = 0;
         
         [SerializeField, Header("Tiles")]
-        private List<Tile> buildings;
+        private List<AnimatedTile> buildings;
         [SerializeField]
         private List<Tile> gizmo;
         
@@ -136,7 +136,7 @@ namespace Building
         }
 
         
-        public List<Tile> GetBuildings()
+        public List<AnimatedTile> GetBuildings()
         {
             return buildings;
         }
