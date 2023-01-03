@@ -56,16 +56,16 @@ namespace Player
             float x = Input.GetAxisRaw("Horizontal");
             float y = Input.GetAxisRaw("Vertical");
 
-            if (Math.Abs(mousePos.x - screen.x) < 1 || Math.Abs(mousePos.x - (screen.x - 1)) < 1)
+            if (Math.Abs(mousePos.x - screen.x) < 100 || Math.Abs(mousePos.x - (screen.x - 100)) < 1)
                 x++;
 
-            if (mousePos.x == 0)
+            if (mousePos.x < 100)
                 x--;
 
-            if (Math.Abs(mousePos.y - screen.y) < 1)
+            if (Math.Abs(mousePos.y - screen.y) < 100)
                 y++;
 
-            if (mousePos.y == 0 || Math.Abs(mousePos.y - 1) < 1)
+            if (mousePos.y < 100 || Math.Abs(mousePos.y - 100) < 1)
                 y--;
 
             x *= cameraMovementVelocity;
