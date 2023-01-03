@@ -997,6 +997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23630e419efcda34eb9a92d8e95ff4a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraMovementVelocity: 14
 --- !u!1 &790015749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2114,7 +2115,7 @@ MonoBehaviour:
   m_AssetsPPU: 32
   m_RefResolutionX: 640
   m_RefResolutionY: 360
-  m_UpscaleRT: 0
+  m_UpscaleRT: 1
   m_PixelSnapping: 0
   m_CropFrameX: 0
   m_CropFrameY: 0

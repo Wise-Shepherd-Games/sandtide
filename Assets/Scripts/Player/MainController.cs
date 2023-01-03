@@ -1,3 +1,4 @@
+using System;
 using Statics;
 using UnityEngine;
 
@@ -7,15 +8,19 @@ namespace Player
     {
         private static Camera mainCamera;
 
+        [SerializeField] private float cameraMovementVelocity;
+
         private void Start()
         {
             mainCamera = Camera.main;
+            Cursor.lockState = CursorLockMode.Confined;
         }
 
         void Update()
         {
             OnWorldPlayerClick();
             EnableBuildMode();
+            CameraMovement();
         }
         
         private void OnWorldPlayerClick()
@@ -40,6 +45,41 @@ namespace Player
             if (Input.GetKeyDown(KeyCode.B))
             {
                 EventManager.OnEnableBuildMode();
+            }
+        }
+
+        private void CameraMovement()
+        {
+            Vector3 screen = new Vector3(Screen.width, Screen.height, 0f);
+            Vector3 mousePos = Input.mousePosition;
+            Vector3 cameraMovement = new Vector2(0f, 0f);
+            float x = Input.GetAxisRaw("Horizontal");
+            float y = Input.GetAxisRaw("Vertical");
+
+            if (Math.Abs(mousePos.x - screen.x) < 1 || Math.Abs(mousePos.x - (screen.x - 1)) < 1)
+                x++;
+
+            if (mousePos.x == 0)
+                x--;
+
+            if (Math.Abs(mousePos.y - screen.y) < 1)
+                y++;
+
+            if (mousePos.y == 0 || Math.Abs(mousePos.y - 1) < 1)
+                y--;
+
+            x *= cameraMovementVelocity;
+            y *= cameraMovementVelocity;
+
+            if (x != 0 || y != 0)
+            {
+                Vector3 currentPosition = mainCamera.transform.position;
+                cameraMovement.x = currentPosition.x + x;
+                cameraMovement.y = currentPosition.y + y;
+                cameraMovement.z = currentPosition.z;
+                currentPosition =
+                    Vector3.Lerp(currentPosition, cameraMovement, Time.deltaTime);
+                mainCamera.transform.position = currentPosition;
             }
         }
     }
