@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.Tilemaps;
 using System.Collections.Generic;
 using Random = UnityEngine.Random;
 
@@ -9,14 +10,19 @@ namespace Map
     public class ProceduralMap : MonoBehaviour
     {
         public int width = 256, height = 256;
+        public float seaLevel;
         [Range(0, 1f)] public float biomesSpread;
+        public float spreadDivider;
+        public Tilemap lowground;
+        public Tilemap ground;
 
         [SerializeField] private List<BiomeWithChance> biomes;
-        private Tile[,] tiles;
+        private TileInfo[,] tiles;
 
         private void Start()
         {
-            if (biomes == null || biomes.Count == 0) return;
+            if (biomes == null || biomes.Count == 0 || lowground == null || ground == null)
+                return;
 
             Initialize();
             Render();
@@ -24,8 +30,8 @@ namespace Map
 
         private void Initialize()
         {
-            tiles = new Tile[width, height];
-            ForEachCoordinate((x, y) => tiles[x, y] = new Tile(biomes[0].biome, false));
+            tiles = new TileInfo[width, height];
+            ForEachCoordinate((x, y) => tiles[x, y] = new TileInfo(biomes[0].biome, false));
 
             Biomes();
             AddLakes();
@@ -33,22 +39,25 @@ namespace Map
 
         private void Render()
         {
-            Texture2D texture = new(width, height, TextureFormat.RGB24, false);
-            SpriteRenderer renderer = GetComponent<SpriteRenderer>();
-
             ForEachCoordinate((x, y) =>
             {
-                Tile tile = tiles[x, y];
-                texture.SetPixel(x, y, tile.isWater ? Color.blue : tile.biome.color);
-            });
+                TileInfo tile = tiles[x, y];
 
-            texture.Apply();
-            renderer.sprite = Sprite.Create(texture, new(0, 0, width, height), new(.5f, .5f));
+                if (tile.isWater)
+                {
+                    lowground.SetTile(new(x, y), tile.biome.water);
+                }
+                else
+                {
+                    int randomIndex = Random.Range(0, tile.biome.groundBlocks.Length - 1);
+                    ground.SetTile(new(x, y, 1), tile.biome.groundBlocks[randomIndex]);
+                }
+
+            });
         }
 
         private void AddLakes()
         {
-            const float landThreshold = .12f;
             Vector2 offset = new(Random.Range(-128, 127), Random.Range(-128, 127));
 
             ForEachCoordinate((x, y) =>
@@ -56,7 +65,7 @@ namespace Map
                 float noise = Noise(x, y, 8, offset);
 
                 bool isWater = false;
-                if (tiles[x, y].biome.canHaveWater && noise < landThreshold) isWater = true;
+                if (tiles[x, y].biome.canHaveWater && noise <= seaLevel) isWater = true;
 
                 tiles[x, y].isWater = isWater;
             });
@@ -65,7 +74,7 @@ namespace Map
         private void Biomes()
         {
             List<Vector2Int> centerPoints = new();
-            int numPoints = (int)(width * height * biomesSpread);
+            int numPoints = (int)(width * height * biomesSpread / spreadDivider);
 
             float totalProbability = biomes.Aggregate(0f, (acc, biome) => acc + biome.probability);
 
@@ -92,7 +101,7 @@ namespace Map
             foreach (Vector2Int coords in centerPoints)
             {
 
-                Tile tile = tiles[coords.x, coords.y];
+                TileInfo tile = tiles[coords.x, coords.y];
 
                 int biomeHalfWidth = tile.biome.maxSize.x / 2;
                 int biomeHalfHeight = tile.biome.maxSize.y / 2;
@@ -151,12 +160,12 @@ namespace Map
         }
     }
 
-    class Tile
+    class TileInfo
     {
         public Biome biome;
         public bool isWater;
 
-        public Tile(Biome biome, bool isWater)
+        public TileInfo(Biome biome, bool isWater)
         {
             this.biome = biome;
             this.isWater = isWater;

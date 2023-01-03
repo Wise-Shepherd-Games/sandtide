@@ -1,11 +1,15 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace Map
 {
+
     [CreateAssetMenu(fileName = "Biome", menuName = "New Biome", order = 0)]
     public class Biome : ScriptableObject
     {
-        public Color color;
+        public Tile water;
+        public Tile[] groundBlocks;
+        public Tile[] upperBlocks;
         public Vector2Int maxSize;
         public bool canHaveWater;
     }

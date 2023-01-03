@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a3b9946286b099cba02c7eb9a6bd917, type: 3}
+  m_Name: Ruins
+  m_EditorClassIdentifier: 
+  water: {fileID: 11400000, guid: 08cad3dc7c68516429c8f48afef8df8e, type: 2}
+  groundBlocks:
+  - {fileID: 11400000, guid: a711a1e6e833b204aa1a9f27b31f343c, type: 2}
+  upperBlocks:
+  - {fileID: 11400000, guid: af267fdfb3ef2fb42860b63a47b79253, type: 2}
+  - {fileID: 11400000, guid: cce1038663612a64bab91c1f8eb8ba3e, type: 2}
+  - {fileID: 11400000, guid: 58251e81896efcf42b0a5e5aa3fdd002, type: 2}
+  maxSize: {x: 10, y: 10}
+  canHaveWater: 1
