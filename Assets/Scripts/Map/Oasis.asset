@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3b9946286b099cba02c7eb9a6bd917, type: 3}
   m_Name: Oasis
   m_EditorClassIdentifier: 
-  water: {fileID: 11400000, guid: 2c37978d6a8222248834c988f8504236, type: 2}
+  water: {fileID: 11400000, guid: 6c63e2adf8ff48f4eaf99bee1a9696b3, type: 2}
   groundBlocks:
   - {fileID: 11400000, guid: 23461c86db44f0d49a1ace77471e5275, type: 2}
   upperBlocks:

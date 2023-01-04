@@ -9,7 +9,8 @@ namespace Player
         private static Camera mainCamera;
 
         [SerializeField] private float cameraMovementVelocity;
-
+        [SerializeField] private float cameraThreshold;
+        
         private void Start()
         {
             mainCamera = Camera.main;
@@ -56,16 +57,16 @@ namespace Player
             float x = Input.GetAxisRaw("Horizontal");
             float y = Input.GetAxisRaw("Vertical");
 
-            if (Math.Abs(mousePos.x - screen.x) < 100 || Math.Abs(mousePos.x - (screen.x - 100)) < 1)
+            if (Math.Abs(mousePos.x - screen.x) < screen.x * cameraThreshold || Math.Abs(mousePos.x - screen.x) < screen.x * cameraThreshold)
                 x++;
 
-            if (mousePos.x < 100)
+            if (mousePos.x < screen.x * cameraThreshold )
                 x--;
 
-            if (Math.Abs(mousePos.y - screen.y) < 100)
+            if (Math.Abs(mousePos.y - screen.y) < screen.y * cameraThreshold)
                 y++;
 
-            if (mousePos.y < 100 || Math.Abs(mousePos.y - 100) < 1)
+            if (mousePos.y < screen.y * cameraThreshold || Math.Abs(mousePos.y) < screen.y * cameraThreshold)
                 y--;
 
             x *= cameraMovementVelocity;

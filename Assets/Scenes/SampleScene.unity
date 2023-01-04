@@ -998,6 +998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMovementVelocity: 14
+  cameraThreshold: 0.01
 --- !u!1 &790015749
 GameObject:
   m_ObjectHideFlags: 0
@@ -3663,4 +3664,4 @@ MonoBehaviour:
   - biome: {fileID: 11400000, guid: 86b054e58a5152b59842a3d79b0cd06e, type: 2}
     probability: 0.5
   - biome: {fileID: 11400000, guid: d6f1236e1595b1474ae2b2281a21332a, type: 2}
-    probability: 0.2
+    probability: 0.3
