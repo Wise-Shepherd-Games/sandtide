@@ -16,8 +16,6 @@ MonoBehaviour:
   groundBlocks:
   - {fileID: 11400000, guid: a711a1e6e833b204aa1a9f27b31f343c, type: 2}
   upperBlocks:
-  - {fileID: 11400000, guid: af267fdfb3ef2fb42860b63a47b79253, type: 2}
   - {fileID: 11400000, guid: cce1038663612a64bab91c1f8eb8ba3e, type: 2}
-  - {fileID: 11400000, guid: 58251e81896efcf42b0a5e5aa3fdd002, type: 2}
   maxSize: {x: 10, y: 10}
   canHaveWater: 1
