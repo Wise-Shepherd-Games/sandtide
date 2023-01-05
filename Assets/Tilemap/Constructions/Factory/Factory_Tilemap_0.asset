@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
-  m_Name: Factory_Tilemap_0 1
+  m_Name: Factory_Tilemap_0
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
   - {fileID: 1222712768, guid: 67beaca807759b04c85b4e7a67e37483, type: 3}

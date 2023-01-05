@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: Warehouse_Tilemap_0
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: -732142540, guid: 9fe9e9eb49c470444a6a6d5d44575b5f, type: 3}
+  - {fileID: -1839741095, guid: 9fe9e9eb49c470444a6a6d5d44575b5f, type: 3}
+  - {fileID: -1305478745, guid: 9fe9e9eb49c470444a6a6d5d44575b5f, type: 3}
+  - {fileID: -239719560, guid: 9fe9e9eb49c470444a6a6d5d44575b5f, type: 3}
+  - {fileID: 1170644539, guid: 9fe9e9eb49c470444a6a6d5d44575b5f, type: 3}
+  - {fileID: 1422142902, guid: 9fe9e9eb49c470444a6a6d5d44575b5f, type: 3}
+  - {fileID: 1359651230, guid: 9fe9e9eb49c470444a6a6d5d44575b5f, type: 3}
+  - {fileID: -86845910, guid: 9fe9e9eb49c470444a6a6d5d44575b5f, type: 3}
+  m_MinSpeed: 5
+  m_MaxSpeed: 6
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0

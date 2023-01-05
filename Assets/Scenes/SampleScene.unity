@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildings:
-  - {fileID: 11400000, guid: 52d47f3827a8ab543bec2b9e754cb7b8, type: 2}
+  - {fileID: 11400000, guid: cfa073221696539489b861c2df88d62b, type: 2}
   gizmo:
   - {fileID: 11400000, guid: 944ec6ecaba2bcd43bbf2954413c9c4e, type: 2}
   - {fileID: 11400000, guid: 42c8c03dee155914782c51cf9d451924, type: 2}
@@ -3651,8 +3651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe2a319b319d5753c9b8d7c156719106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 32
-  height: 32
+  width: 256
+  height: 256
   seaLevel: 0.4
   biomesSpread: 1
   spreadDivider: 200
