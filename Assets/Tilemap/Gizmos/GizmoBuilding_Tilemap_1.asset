@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GizmoBuilding_Tilemap_1
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300000, guid: fbbcf2d7ad8a5e14a8770d577163d28e, type: 3}
-  m_Color: {r: 1, g: 0.3433962, b: 0.3433962, a: 1}
+  m_Color: {r: 1, g: 0.06132078, b: 0.06132078, a: 1}
   m_Transform:
     e00: 1
     e01: 0
