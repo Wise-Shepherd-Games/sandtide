@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Player;
 using Statics;
 using UnityEngine;
@@ -103,11 +104,26 @@ namespace Building
                     
                     List<Vector3Int> topNeighbors = Utils.BuildingTopNeighbors(cellConverted);
 
+                                      
+                    List<Vector3Int> allNeighborsInRangeAndHeight =
+                        Utils.GetAllNeighborsInRangeAndHeight(cellConverted, 2, 2);
+                    
                     foreach (Vector3Int neighbor in topNeighbors)
                     {
                         tilemaps[1].SetTile(neighbor, placeholder);
+                        allNeighborsInRangeAndHeight.AddRange(Utils.GetAllNeighborsInRangeAndHeight(neighbor, 2, 2));
                     }
 
+                    allNeighborsInRangeAndHeight =  allNeighborsInRangeAndHeight.Distinct().ToList();
+                    
+                    foreach (Vector3Int neighbor in allNeighborsInRangeAndHeight)
+                    {
+                        tilemaps[3].SetTile(neighbor, null);
+                    }
+                    
+                    tilemaps[3].SetTile(new Vector3Int(cellConverted.x, cellConverted.y, 2), null);
+
+                    
                     source.PlayOneShot(buildSound, 0.25f);
                     buildingState = false;
                     tilemaps[^1].ClearAllTiles();

@@ -20,5 +20,24 @@ namespace Statics
 			topNeighbors.Add(new Vector3Int(positionInGrid.x, positionInGrid.y + 1, positionInGrid.z));
 			return topNeighbors;
 		}
+
+		public static List<Vector3Int> GetAllNeighborsInRangeAndHeight(Vector3Int positionInGrid, int height = 0, int range = 2)
+		{
+			Vector3Int cell = positionInGrid;
+			List<Vector3Int> allNeighbors = new List<Vector3Int>();
+			
+			for (int i = 0; i < range; i++)
+			{
+				for (int j = 0; j < range; j++)
+				{
+					allNeighbors.Add(new Vector3Int(cell.x + i, cell.y + j, height));
+					allNeighbors.Add(new Vector3Int(cell.x - i, cell.y - j, height));
+					allNeighbors.Add(new Vector3Int(cell.x + i, cell.y - j, height));
+					allNeighbors.Add(new Vector3Int(cell.x - i, cell.y + j, height));
+				}
+			}
+
+			return allNeighbors;
+		}
 	}
 }
