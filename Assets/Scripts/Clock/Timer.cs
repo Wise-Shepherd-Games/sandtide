@@ -1,4 +1,3 @@
-using Statics;
 using UnityEngine;
 
 namespace Clock
@@ -22,7 +21,7 @@ namespace Clock
                 {
                     time = 0;
                     TimePassed++;
-                    EventManager.OnTimerTick();
+                    //EventManager.OnTimerTick();
                 }
             }
         }

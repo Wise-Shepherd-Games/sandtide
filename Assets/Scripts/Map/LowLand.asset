@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   water: {fileID: 0}
   groundBlocks:
-  - {fileID: 11400000, guid: b3258f142474118428eb4ea436db0fb6, type: 2}
+  - {fileID: 11400000, guid: 58d2eb594b9e3ad448494f8501901718, type: 2}
   upperBlocks:
-  - {fileID: 11400000, guid: ed6b98922077bc54797210cebcae003c, type: 2}
+  - {fileID: 11400000, guid: 5514ad71671654e49bdf2dae742dbeb6, type: 2}
   maxSize: {x: 15, y: 15}
   canHaveWater: 0
