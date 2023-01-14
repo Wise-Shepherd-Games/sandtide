@@ -122,7 +122,6 @@ namespace Building
                     }
                     
                     tilemaps[3].SetTile(new Vector3Int(cellConverted.x, cellConverted.y, 2), null);
-
                     
                     source.PlayOneShot(buildSound, 0.25f);
                     buildingState = false;
