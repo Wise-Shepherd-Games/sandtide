@@ -1,4 +1,3 @@
-using Statics;
 using UnityEngine;
 
 namespace Worm
@@ -14,7 +13,7 @@ namespace Worm
 
         void OnEnable()
         {
-            EventManager.MakeNoise += ChangeTarget;
+            //EventManager.MakeNoise += ChangeTarget;
         }
 
         void Update()
@@ -29,8 +28,8 @@ namespace Worm
             else
             {
                 transform.position = Vector2.MoveTowards
-                    (this.transform.position, 
-                    currentTargetCoordinate, 
+                    (this.transform.position,
+                    currentTargetCoordinate,
                     movSpeed * Time.deltaTime);
             }
         }
@@ -39,6 +38,6 @@ namespace Worm
         {
             targetCoordinate = position;
         }
-        
+
     }
 }

@@ -1,5 +1,4 @@
 using Statics;
-using Player;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
@@ -25,7 +24,7 @@ namespace World
 
         private void OnMouseOverHighGround()
         {
-            Vector2Int cell = Utils.WorldToCell(grid, MainController.GetWorldMousePosition());
+            Vector2Int cell = Utils.WorldToCell(grid, Camera.main.ScreenToWorldPoint(Input.mousePosition));
             List<Vector2Int> neighbors = new List<Vector2Int>();
             List<Vector3Int> tilesForTransparency = new List<Vector3Int>();
             
