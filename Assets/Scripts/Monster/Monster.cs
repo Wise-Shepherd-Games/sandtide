@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace Worm
+namespace Monster
 {
-    public class Worm : MonoBehaviour
+    public class Monster : MonoBehaviour
     {
         private Vector2 currentTargetCoordinate;
         [SerializeField, Header("Target Coordinate")]
