@@ -14,6 +14,11 @@ namespace Construction
 		[Min(0)]
 		public int timeExtracting, timeForMaxExtracting, warehouseBonus;
 
+		public bool isExtracting;
+
+		public GameObject UIExtractingBar;
+		public GameObject UIExtractingBarContent;
+		
 		private void Awake()
 		{
 			thisStateManager = gameObject.AddComponent<FactoryStateManager>();
