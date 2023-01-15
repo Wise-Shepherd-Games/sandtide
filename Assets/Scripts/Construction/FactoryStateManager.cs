@@ -8,13 +8,17 @@ namespace Construction
         public Factory targetFactory;
     
         private ConstructionBaseState currentState;
-        public FactoryActiveState ActiveState = new FactoryActiveState();
-        public FactoryInactiveState InactiveState = new FactoryInactiveState();
-        public FactoryUnloadState UnloadState = new FactoryUnloadState();
-        public FactoryUpgradingState UpgradingState = new FactoryUpgradingState();
+        public FactoryActiveState ActiveState;
+        public FactoryInactiveState InactiveState;
+        public FactoryUnloadState UnloadState;
+        public FactoryUpgradingState UpgradingState;
         
         private void Awake()
         {
+            ActiveState = new FactoryActiveState();
+            InactiveState = new FactoryInactiveState();
+            UnloadState = new FactoryUnloadState();
+            UpgradingState = new FactoryUpgradingState();
             targetFactory = gameObject.GetComponent<Factory>();
         }
     
@@ -32,7 +36,7 @@ namespace Construction
         public void SwitchState(ConstructionBaseState state)
         {
             currentState = state;
-            state.EnterState(state);
+            currentState.EnterState(this);
         }
 
         private void OnCollisionEnter2D(Collision2D collision2D)

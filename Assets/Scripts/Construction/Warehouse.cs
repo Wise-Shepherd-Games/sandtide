@@ -10,10 +10,10 @@ namespace Construction
        public WarehouseStateManager thisStateManager;
        
        [Min(0)]
-       public float warehouseBonus, efficiencyBonus, unitsMovementVelocity, unitsMovementVelocityBonus;
+       public float efficiencyBonus, unitsMovementVelocity, unitsMovementVelocityBonus;
 
        [Min(0)]
-       public int intelligenceUnitsCapacity, cargoUnitsCapacity, intelligenceUnitsOnField, cargoUnitsOnField;
+       public int warehouseBonus, intelligenceUnitsCapacity, cargoUnitsCapacity, intelligenceUnitsOnField, cargoUnitsOnField;
 
        private void Awake()
        {

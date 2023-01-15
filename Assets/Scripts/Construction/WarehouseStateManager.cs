@@ -32,7 +32,7 @@ namespace Construction
         public void SwitchState(ConstructionBaseState state)
         {
             currentState = state;
-            state.EnterState(state);
+            currentState.EnterState(this);
         }
 
         private void OnCollisionEnter2D(Collision2D collision2D)

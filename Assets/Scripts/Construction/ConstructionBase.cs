@@ -40,7 +40,11 @@ namespace Construction
 			PlayerInputEventManager.MouseLeftClick += CheckIfStillSelected;
 		}
 
-		public void EmitNoise(float noiseCalculated) => NoiseEventManager.OnMakeNoise(gameObject, noiseCalculated);
+		public void EmitNoise(float noiseCalculated)
+		{
+			Debug.Log("Made noise: " + noiseCalculated);
+			NoiseEventManager.OnMakeNoise(gameObject, noiseCalculated);
+		}
 
 		public void Destroy()
 		{

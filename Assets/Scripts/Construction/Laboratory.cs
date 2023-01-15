@@ -7,8 +7,10 @@ namespace Construction
     {
         public LaboratoryStateManager thisStateManager;
 
-        [Min(0)] public float transmutationBaseTime, transmutationRate, transmutationRateBonus, efficiencyBonus, warehouseBonus;
+        [Min(0)] public float transmutationBaseTime, transmutationRate, transmutationRateBonus, efficiencyBonus;
 
+        [Min(0)] public int warehouseBonus;
+        
         private void Awake()
         {
             thisStateManager = gameObject.AddComponent<LaboratoryStateManager>();

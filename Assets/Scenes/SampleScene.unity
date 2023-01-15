@@ -374,7 +374,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286650170}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: 0}
+  m_LocalPosition: {x: -5, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -395,14 +395,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constructionType: 0
-  maxLevel: 0
-  currentLevel: 0
+  maxLevel: 10
+  currentLevel: 1
   warehouseFilled: 0
-  warehouseCapacity: 0
-  activeNoise: 0
-  inactiveNoise: 0
+  warehouseCapacity: 250
+  activeNoise: 1
+  inactiveNoise: 0.1
   viewRadius: 0
-  overallEfficiency: 0
+  overallEfficiency: 1
   cellsAllocatedOnGrid: []
   isSelected: 0
   selectedGizmo: {fileID: 596891225}
@@ -410,11 +410,11 @@ MonoBehaviour:
   animator: {fileID: 0}
   circleCollider: {fileID: 286650175}
   thisStateManager: {fileID: 0}
-  efficiencyBonus: 0
+  efficiencyBonus: 1
   radiusBonus: 0
-  warehouseBonus: 0
   timeExtracting: 0
-  timeForMaxExtracting: 0
+  timeForMaxExtracting: 10
+  warehouseBonus: 0
 --- !u!58 &286650175
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1350,10 +1350,10 @@ MonoBehaviour:
   animator: {fileID: 0}
   circleCollider: {fileID: 1779052881}
   thisStateManager: {fileID: 0}
-  warehouseBonus: 0
   efficiencyBonus: 0
   unitsMovementVelocity: 0
   unitsMovementVelocityBonus: 0
+  warehouseBonus: 0
   intelligenceUnitsCapacity: 0
   cargoUnitsCapacity: 0
   intelligenceUnitsOnField: 0

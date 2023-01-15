@@ -1,5 +1,6 @@
 using UnityEngine;
 using EventManagers;
+using Unity.VisualScripting.Dependencies.NCalc;
 
 namespace Clock
 {
@@ -26,5 +27,7 @@ namespace Clock
                 }
             }
         }
+
+        public static int GetTimePassed() => TimePassed;
     }
 }
