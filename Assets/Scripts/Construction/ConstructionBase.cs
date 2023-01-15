@@ -2,6 +2,7 @@ using System;
 using Statics;
 using System.Collections.Generic;
 using UnityEngine;
+using EventManagers;
 
 namespace Construction
 {
@@ -25,10 +26,7 @@ namespace Construction
 
 		public CircleCollider2D circleCollider;
 
-		public void EmitNoise(float noiseMultiplier)
-		{
-        
-		}
+		public void EmitNoise(float noiseCalculated) => NoiseEventManager.OnMakeNoise(gameObject, noiseCalculated);
 
 		public void Destroy()
 		{
@@ -37,7 +35,7 @@ namespace Construction
 
 		public void OnMouseDown()
 		{
-        
+			
 		}
 
 		public void OnMouseOver()

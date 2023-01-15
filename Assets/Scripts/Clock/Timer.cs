@@ -1,10 +1,11 @@
 using UnityEngine;
+using EventManagers;
 
 namespace Clock
 {
     public class Timer : MonoBehaviour
     {
-        public static int TimePassed { get; private set; }
+        private static int TimePassed { get; set; }
 
         [Header("Is Timer Enable?")] public bool isEnable = true;
 
@@ -21,7 +22,7 @@ namespace Clock
                 {
                     time = 0;
                     TimePassed++;
-                    //EventManager.OnTimerTick();
+                    TimeEventManager.OnTimerTick(TimePassed);
                 }
             }
         }
