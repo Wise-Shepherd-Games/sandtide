@@ -6,7 +6,7 @@ namespace EventManagers
 	public static class NoiseEventManager
 	{
 		public static event UnityAction<GameObject, float> MakeNoise;
-		public static void OnMakeNoise(GameObject gameObject, float noise) => MakeNoise?.Invoke(gameObject, noise);
+		public static void OnMakeNoise(GameObject gameObj, float noise) => MakeNoise?.Invoke(gameObj, noise);
 	}
 }
 
