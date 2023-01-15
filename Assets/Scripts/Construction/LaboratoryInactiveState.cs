@@ -7,7 +7,6 @@ namespace Construction
         public override void EnterState<T>(T stateManager)
         {
             var laboratoryStateManager = stateManager as LaboratoryStateManager;
-            laboratoryStateManager.targetLaboratory.currentLevel = 1;
         }
 
         public override void UpdateState<T>(T stateManager)
