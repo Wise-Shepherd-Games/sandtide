@@ -1,5 +1,6 @@
 using UnityEngine;
 using EventManagers;
+using UnityEngine.InputSystem;
 
 namespace PlayerInput
 {
@@ -10,34 +11,44 @@ namespace PlayerInput
         private Vector2 direction;
         public float speed = 5f;
 
-        private void Awake()
-        {
-            inputActions = new();
+        private void Awake() => inputActions = new();
 
-            inputActions.Player.Move.performed += ctx => direction = ctx.ReadValue<Vector2>();
-            inputActions.Player.Move.canceled += ctx => direction = Vector2.zero;
+        private void OnEnable()
+        {
+            inputActions.Player.Move.performed += OnMovePerformed;
+            inputActions.Player.Move.canceled += OnMoveCanceled;
+
+            inputActions.Player.LeftClick.performed += OnLeftClickPerformed;
+
+            inputActions.Player.Enable();
         }
 
-        private void OnEnable() => inputActions.Player.Enable();
+        private void OnDisable()
+        {
+            inputActions.Player.Move.performed -= OnMovePerformed;
+            inputActions.Player.Move.canceled -= OnMoveCanceled;
 
-        private void OnDisable() => inputActions.Player.Disable();
+            inputActions.Player.LeftClick.performed -= OnLeftClickPerformed;
+
+            inputActions.Player.Disable();
+        }
 
         void Update()
         {
             Camera cam = Camera.main;
             Vector2 camPos = cam.transform.position;
-            cam.transform.position = Vector2.Lerp(camPos, camPos + (direction * speed), Time.deltaTime);
-            GetGameObjectLeftClicked();
+            Vector2 newPos = Vector2.Lerp(camPos, camPos + direction * speed, Time.deltaTime);
+            cam.transform.position = new(newPos.x, newPos.y, cam.transform.position.z);
         }
 
-        private void GetGameObjectLeftClicked()
+        private void OnLeftClickPerformed(InputAction.CallbackContext ctx)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
-                PlayerInputEventManager.OnMouseLeftClick(hit.collider ? hit.collider.gameObject : gameObject);
-            }
+            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
+            PlayerInputEventManager.OnMouseLeftClick(hit.collider ? hit.collider.gameObject : gameObject);
         }
+
+        private void OnMovePerformed(InputAction.CallbackContext ctx) => direction = ctx.ReadValue<Vector2>();
+        private void OnMoveCanceled(InputAction.CallbackContext ctx) => direction = Vector2.zero;
     }
 }

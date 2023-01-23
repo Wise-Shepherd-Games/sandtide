@@ -37,6 +37,15 @@ namespace PlayerInput
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""LeftClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""7366f2a5-6738-441f-82df-7a89cfcd4e10"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -94,6 +103,17 @@ namespace PlayerInput
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c948271a-a8cf-450d-aace-f35e5b553214"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -103,6 +123,7 @@ namespace PlayerInput
             // Player
             m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
             m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+            m_Player_LeftClick = m_Player.FindAction("LeftClick", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -163,11 +184,13 @@ namespace PlayerInput
         private readonly InputActionMap m_Player;
         private IPlayerActions m_PlayerActionsCallbackInterface;
         private readonly InputAction m_Player_Move;
+        private readonly InputAction m_Player_LeftClick;
         public struct PlayerActions
         {
             private @PlayerInputActions m_Wrapper;
             public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
             public InputAction @Move => m_Wrapper.m_Player_Move;
+            public InputAction @LeftClick => m_Wrapper.m_Player_LeftClick;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -180,6 +203,9 @@ namespace PlayerInput
                     @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                     @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                     @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                    @LeftClick.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftClick;
+                    @LeftClick.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftClick;
+                    @LeftClick.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftClick;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -187,6 +213,9 @@ namespace PlayerInput
                     @Move.started += instance.OnMove;
                     @Move.performed += instance.OnMove;
                     @Move.canceled += instance.OnMove;
+                    @LeftClick.started += instance.OnLeftClick;
+                    @LeftClick.performed += instance.OnLeftClick;
+                    @LeftClick.canceled += instance.OnLeftClick;
                 }
             }
         }
@@ -194,6 +223,7 @@ namespace PlayerInput
         public interface IPlayerActions
         {
             void OnMove(InputAction.CallbackContext context);
+            void OnLeftClick(InputAction.CallbackContext context);
         }
     }
 }
