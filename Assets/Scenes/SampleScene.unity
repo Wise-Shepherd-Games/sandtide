@@ -1860,7 +1860,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.109375
+  orthographic size: 5.625
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -1972,26 +1972,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 1972946010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe2a319b319d5753c9b8d7c156719106, type: 3}
+  m_Script: {fileID: 11500000, guid: 46cc7c50541030cee9a33ad690ddcf17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 128
-  height: 128
-  seaLevel: 0.4
-  maxMontainHeight: 7
-  montainThreshold: 0.35
-  biomesSpread: 1
-  spreadDivider: 200
-  lowground: {fileID: 826457452}
-  ground: {fileID: 1713184284}
-  highground: {fileID: 711741877}
-  biomes:
-  - biome: {fileID: 11400000, guid: eff12c038fe0f1d989a6b534f58090ca, type: 2}
-    probability: 0.05
-  - biome: {fileID: 11400000, guid: 86b054e58a5152b59842a3d79b0cd06e, type: 2}
-    probability: 0.5
-  - biome: {fileID: 11400000, guid: d6f1236e1595b1474ae2b2281a21332a, type: 2}
-    probability: 0.3
+  initialChunkCount: 1
+  chunkSize: {x: 128, y: 128}
+  tilemaps:
+    lowground: {fileID: 826457452}
+    ground: {fileID: 1713184284}
+    highground: {fileID: 711741877}
+  biomesInfo:
+    biomes:
+    - biome: {fileID: 11400000, guid: eff12c038fe0f1d989a6b534f58090ca, type: 2}
+      probability: 0.05
+    - biome: {fileID: 11400000, guid: 86b054e58a5152b59842a3d79b0cd06e, type: 2}
+      probability: 0.5
+    - biome: {fileID: 11400000, guid: d6f1236e1595b1474ae2b2281a21332a, type: 2}
+      probability: 0.3
+    biomesSpread: 1
+    spreadDivider: 200
+  terrainInfo:
+    seaLevel: 0.4
+    maxMontainHeight: 7
+    montainThreshold: 0.35
 --- !u!1 &1974752388
 GameObject:
   m_ObjectHideFlags: 0
@@ -2208,7 +2211,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.109375
+  orthographic size: 5.625
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
