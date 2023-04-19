@@ -36,6 +36,7 @@ namespace Construction
 
 					if (factory.timeExtracting < factory.timeForMaxExtracting)
 					{
+						factory.UIExtractingBarContent.GetComponent<SpriteRenderer>().color = Color.green;
 						factory.timeExtracting++;
 						factory.warehouseFilled += factory.CalculateExtraction();
 						factory.EmitNoise(factory.CalculateActiveNoise());
